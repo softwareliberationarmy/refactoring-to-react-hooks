@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+html {
+    font: 20px/1.5 "Karla", sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+h1, h2, h3 {
+    color: #1C1D38;
+    font-weight: initial;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+label {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.field {
+    display: inline-block;
+    position: relative;
+    width: 13rem;
+}
+
+select {
+    -moz-appearance: none;
+    -ms-text-size-adjust: 100%;
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 100%;
+    appearance: none;
+    background-color: white;
+    border-radius: 5px;
+    border-width: 1px;
+    display: block;
+    font-family: inherit;
+    font-size: 100%;
+    height: 2rem;
+    width: 100%;
+}
+
+.chevron-wrapper {
+    align-items: center;
+    bottom: 0;
+    color: rgba(74, 85, 104, 1);
+    padding-left: .5rem;
+    padding-right: .5rem;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.chevron {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas:
+        "aside main";
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 4rem;
+}
+
+.aside {
+    grid-area: aside;
+    padding: 1rem;
+}
+
+.main {
+    grid-area: main;
+    min-height: 900px;
+}
+
+.summary {
+    margin-bottom: 50px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.card {
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    margin-right: 30px;
+    padding-left: 15px;
+    width: 270px;
+}
+
+.bg-indigo {
+    background-color: #7f9cf5;
+}
+
+.bg-blue {
+    background-color: #63b3ed;
+}
+
+.shadow {
+    box-shadow: 0 10px 15px -3px;
+}
+
+.loading {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loading div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid cornflowerblue;
+    border-radius: 50%;
+    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: cornflowerblue transparent transparent transparent;
+}
+
+.loading div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.loading div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.loading div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
