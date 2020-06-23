@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Aside from "../../components/common/Aside";
+import Aside from "../../common/components/Aside";
 import ChartContainer from "./ChartContainer";
-import Layout from "../../components/common/Layout";
-import Main from "../../components/common/Main";
+import Layout from "../../common/components/Layout";
+import Main from "../../common/components/Main";
 import SummaryContainer from "./SummaryContainer";
 import { connect } from "react-redux";
 import { fetchDataset } from "./DashboardSlice";
