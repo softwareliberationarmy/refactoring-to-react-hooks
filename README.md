@@ -6,7 +6,7 @@
 Install the dependencies with
 
 ```bash
-npm install
+npm ci
 ```
 
 ## Available Scripts
