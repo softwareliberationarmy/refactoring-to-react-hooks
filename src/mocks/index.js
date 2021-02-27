@@ -1,6 +1,8 @@
 export let sales;
 export let subscriptions;
 
+const loadMirage = () => import('miragejs');
+
 if (process.env.NODE_ENV === "development") {
   /* ONLY FOR DEVELOPMENT! DON'T IMPORT IN PRODUCTION */
   const Series = require("time-series-data-generator");
@@ -23,4 +25,15 @@ if (process.env.NODE_ENV === "development") {
     variance: 5,
     decimalDigits: 0
   });
+
+  loadMirage().then(({ Server }) => {
+    return new Server({
+        routes() {
+            this.namespace = process.env.REACT_APP_BASE_URL;
+            this.get('/sales/', () => sales);
+            this.get('/subscriptions/', () => subscriptions);
+        }
+    })
+})
 }
+
