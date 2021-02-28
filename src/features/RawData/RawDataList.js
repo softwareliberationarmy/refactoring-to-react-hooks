@@ -23,14 +23,15 @@ const RawDataList = props => {
     return (
         <div>
             <ul>
-                {data && data.map((d,i) => (<li key={i}>{d.timestamp} - {d.amount}</li>))}
+                {data && data.map((d,i) => (<li key={i}>{props.mapResults(d)}</li>))}
             </ul>
         </div>
     );
 };
 
 RawDataList.propTypes = {
-    fetchUrl: PropTypes.string.isRequired
+    fetchUrl: PropTypes.string.isRequired,
+    mapResults: PropTypes.func.isRequired
 };
 
 export default RawDataList;

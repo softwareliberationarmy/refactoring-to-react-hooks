@@ -11,7 +11,7 @@ const RawDataShell = () => {
             options={chartDataTypes} 
             onSelectionChanged={(event) => setChartDataUrl(event.target.selectedOptions[0].value)} />    
 
-        <RawDataList fetchUrl={chartDataUrl} />
+        <RawDataList fetchUrl={chartDataUrl} mapResults={d => `${d.timestamp} - ${d.amount}`}         />
     </div>
     );
 
