@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import Selector from '../../common/components/Selector';
-import RawDataList from './RawDataList';
+import FetchDataList from '../../common/components/FetchDataList';
+
+const loadMockData = () => import('../../mocks');
+if (process.env.NODE_ENV === "development") {
+    loadMockData();
+}
 
 const RawDataShell = () => {    
       const [chartDataUrl, setChartDataUrl] = useState('');
@@ -11,7 +16,7 @@ const RawDataShell = () => {
             options={chartDataTypes} 
             onSelectionChanged={(event) => setChartDataUrl(event.target.selectedOptions[0].value)} />    
 
-        <RawDataList fetchUrl={chartDataUrl} mapResults={d => `${d.timestamp} - ${d.amount}`}         />
+        <FetchDataList fetchUrl={chartDataUrl} mapResults={d => `${d.timestamp} - ${d.amount}`}         />
     </div>
     );
 

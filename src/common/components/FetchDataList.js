@@ -1,12 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const loadMockData = () => import('../../mocks');
-if (process.env.NODE_ENV === "development") {
-    loadMockData();
-}
-
-const RawDataList = props => {
+const FetchDataList = props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -29,9 +24,9 @@ const RawDataList = props => {
     );
 };
 
-RawDataList.propTypes = {
+FetchDataList.propTypes = {
     fetchUrl: PropTypes.string.isRequired,
     mapResults: PropTypes.func.isRequired
 };
 
-export default RawDataList;
+export default FetchDataList;
