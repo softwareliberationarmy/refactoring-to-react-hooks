@@ -30,8 +30,8 @@ if (process.env.NODE_ENV === "development") {
     return new Server({
         routes() {
             this.namespace = process.env.REACT_APP_BASE_URL;
-            this.get('/sales/', () => sales);
-            this.get('/subscriptions/', () => subscriptions);
+            this.get('/sales/', () => sales, { timing: 3000});
+            this.get('/subscriptions/', () => subscriptions, { timing: 3000});
         }
     })
 })
