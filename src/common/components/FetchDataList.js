@@ -1,19 +1,10 @@
-import React, {useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import {useFetch } from '../../hooks/useFetch';
 
 const FetchDataList = props => {
-    const [data, setData] = useState([]);
 
-    useEffect(() => {
-        if(props.fetchUrl !== ''){
-            fetch(props.fetchUrl)
-            .then(response => {
-                if(!response.ok) throw Error(response.statusText);
-                return response.json();
-            })
-            .then(json => setData(json));
-        }
-    }, [props.fetchUrl]);
+    const data = useFetch(props.fetchUrl);
 
     return (
         <div>
