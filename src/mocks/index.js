@@ -31,6 +31,8 @@ if (process.env.NODE_ENV === "development") {
         routes() {
             this.namespace = process.env.REACT_APP_BASE_URL;
             this.get('/sales/', () => sales, { timing: 3000});
+            //TO TEST OUT ERROR CONDITION
+            // this.get('/subscriptions/', () => Response(500), { timing: 3000});
             this.get('/subscriptions/', () => subscriptions, { timing: 3000});
         }
     })
