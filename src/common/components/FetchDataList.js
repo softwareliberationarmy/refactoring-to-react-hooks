@@ -8,7 +8,7 @@ const FetchDataList = props => {
     const {loading, data, error} = useFetch(props.fetchUrl);
 
     if(loading) return (<Loading/>);
-    else if (error) return (<div>{error.message}</div>);
+    else if (error) return (<div className="error">{error.message}</div>);
     else 
     return (
         <div>
