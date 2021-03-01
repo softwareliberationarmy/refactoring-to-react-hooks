@@ -1,27 +1,37 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
+
+function reducer (state, action) {
+    switch(action.type){
+        case "loading":
+            return {loading: true, data: [], error: null};
+        case "success": 
+            return {loading: false, data: action.data, error: null};
+        case "error":
+            return {loading: false, data: [], error: action.error};
+        default: 
+            throw Error('unexpected action type');
+    }
+}
+
+const initialState = {loading: false, data: [], error: null};
 
 export const useFetch = url => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
-        setError(null);
-        setData([]);
-
         if(url !== ''){
-            setLoading(true);
+            dispatch({type: 'loading'});
 
             fetch(url)
             .then(response => {
                 if(response.ok) return response.json();
                 else throw Error(response.statusText);
             })
-            .then(json => setData(json))
-            .catch(error => setError(error))
-            .finally(() => setLoading(false));    
+            .then(json => dispatch({type:'success', data: json}))
+            .catch(error => dispatch({type: 'error', error: error}));
         }
     }, [url]);
 
-    return { loading, data, error};
+    return state;
 };
