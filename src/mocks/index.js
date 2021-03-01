@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === "development") {
     decimalDigits: 0
   });
 
-  loadMirage().then(({ Server }) => {
+  loadMirage().then(({ Server, Response }) => {
     return new Server({
         routes() {
             this.namespace = process.env.REACT_APP_BASE_URL;

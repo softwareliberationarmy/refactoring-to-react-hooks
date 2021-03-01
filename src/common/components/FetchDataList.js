@@ -1,16 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useFetch } from '../../hooks/useFetch';
+import Loading  from '../components/Loading';
 
 const FetchDataList = props => {
 
-    const data = useFetch(props.fetchUrl);
+    const {loading, data, error} = useFetch(props.fetchUrl);
 
+    console.log('kp-error', error);
+
+    if(loading) return (<Loading/>);
+    else if (error) return (<div>{error.message}</div>);
+    else 
     return (
         <div>
-            <ul>
-                {data && data.map((d,i) => (<li key={i}>{props.mapResults(d)}</li>))}
-            </ul>
+            {data && (<ul>{data && data.map((d,i) => (<li key={i}>{props.mapResults(d)}</li>))}</ul>)}                        
         </div>
     );
 };
