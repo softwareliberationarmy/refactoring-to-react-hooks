@@ -1,10 +1,8 @@
 import React from "react";
-// import DashboardShell from "./features/Dashboard/DashboardShell";
-import RawDataShell from './features/RawData/RawDataShell';
+import DashboardShell from "./features/Dashboard/DashboardShell";
 
 const App = () => {
-  // return <DashboardShell />;
-  return <RawDataShell />;
+  return <DashboardShell />;
 };
 
 export default App;
