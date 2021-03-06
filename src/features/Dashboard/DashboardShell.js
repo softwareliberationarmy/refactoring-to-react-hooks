@@ -4,8 +4,6 @@ import ChartContainer from "./ChartContainer";
 import Layout from "../../common/components/Layout";
 import Main from "../../common/components/Main";
 import SummaryContainer from "./SummaryContainer";
-import { connect } from "react-redux";
-import { fetchDataset } from "./DashboardSlice";
 
 class DashboardShell extends Component {
   constructor(props) {
@@ -15,13 +13,8 @@ class DashboardShell extends Component {
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchDataset(`${process.env.REACT_APP_BASE_URL}/totals/`);
-  }
-
   handleSelectChange(event) {
     const selectedLabel = event.target.selectedOptions[0].label;
-    this.props.fetchDataset(event.target.value);
     this.setState({ selectedLabel });
   }
 
@@ -79,8 +72,4 @@ class DashboardShell extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  fetchDataset
-};
-
-export default connect(null, mapDispatchToProps)(DashboardShell);
+export default DashboardShell;

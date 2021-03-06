@@ -5,9 +5,11 @@ import DataContext from './context/DataContext';
 const initialState = {
   loading: true,
   error: "",
-  salesTotal: 0,
-  subscriptionsTotal: 0,
-  data: [{ timestamp: new Date().toISOString(), amount: 0 }]
+  salesTotal: 500,
+  subscriptionsTotal: 500,
+  data: [{ timestamp: new Date().toISOString(), amount: 100 },
+    { timestamp: new Date().toISOString(), amount: 200 },
+    { timestamp: new Date().toISOString(), amount: 300 }]
 };
 
 const App = () => {  

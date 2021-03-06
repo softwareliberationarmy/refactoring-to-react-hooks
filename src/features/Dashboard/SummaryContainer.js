@@ -1,32 +1,21 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
+import DataContext from '../../context/DataContext';
 
-const SummaryContainer = ({ salesTotal, subscriptionsTotal }) => {
+const SummaryContainer = () => {
+  const context = useContext(DataContext);
+
   return (
     <div className="summary flex flex-row">
       <div className="card bg-indigo">
         <p>CellFast sales</p>
-        <p>$ {salesTotal}</p>
+        <p>$ {context.salesTotal}</p>
       </div>
       <div className="card bg-blue">
         <p>CellNow subscriptions</p>
-        <p>$ {subscriptionsTotal}</p>
+        <p>$ {context.subscriptionsTotal}</p>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    salesTotal: state.dataset.salesTotal,
-    subscriptionsTotal: state.dataset.subscriptionsTotal
-  };
-};
-
-SummaryContainer.propTypes = {
-  salesTotal: PropTypes.number.isRequired,
-  subscriptionsTotal: PropTypes.number.isRequired
-};
-
-export default connect(mapStateToProps)(SummaryContainer);
+export default SummaryContainer;
