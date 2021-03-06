@@ -4,6 +4,7 @@ import ChartContainer from "./ChartContainer";
 import Layout from "../../common/components/Layout";
 import Main from "../../common/components/Main";
 import SummaryContainer from "./SummaryContainer";
+import Selector from '../../common/components/Selector';
 
 class DashboardShell extends Component {
   constructor(props) {
@@ -28,28 +29,9 @@ class DashboardShell extends Component {
     ];
 
     return (
-      <>
-        <label htmlFor="select-product">Please select a chart:</label>
-        <div className="field">
-          <select id="select-product" onChange={this.handleSelectChange}>
-            <option value="">--</option>
-            {optionsForSelect.map(option => (
-              <option key={option.label} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <div className="chevron-wrapper flex">
-            <svg
-              className="chevron"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-            </svg>
-          </div>
-        </div>
-      </>
+      <Selector label='Please select a chart:' 
+      options={optionsForSelect} 
+      onSelectionChanged={this.handleSelectChange} />    
     );
   }
 
